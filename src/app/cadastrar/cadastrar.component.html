@@ -1,0 +1,28 @@
+<div>
+
+  <div class="card flex justify-content-center" style="margin: 25px;">
+    <span class="p-float-label">
+      <input pInputText [class]="produto.nome ? '' : 'ng-invalid ng-dirty'" id="username" [(ngModel)]="produto.nome" />
+      <label htmlFor="username">Nome</label>
+  </span>
+  </div>
+  <div class="card flex justify-content-center" style="margin: 25px;">
+    <span class="p-float-label">
+      <p-inputMask mask="99999999" [required]="true" [(ngModel)]="produto.codigoBarras" placeholder="99999999"></p-inputMask>
+      <label htmlFor="username">Código de Barras</label>
+  </span>
+  </div>
+  <div class="card flex justify-content-center" style="margin: 25px;">
+    <span class="p-float-label">
+      <p-inputNumber [(ngModel)]="produto.preco" inputId="locale-br" [required]="true" mode="decimal" locale="pt-BR" [minFractionDigits]="2"> </p-inputNumber>
+      <label htmlFor="username">Preço</label>
+  </span>
+  </div>
+
+  <div class="card flex justify-content-center" style="margin: 10px;">
+    <div class="flex justify-content-around " style="width: 15%;">
+      <p-button severity="secondary" label="Voltar" routerLink="/"></p-button>
+      <p-button [label]="edicao ? 'Editar' : 'Cadastrar'" (onClick)="edicao ? editarProduto() : cadastrarProduto()"></p-button>
+    </div>
+  </div>
+</div>

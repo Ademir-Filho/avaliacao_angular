@@ -1,0 +1,32 @@
+<div class="card flex justify-content-center flex-wrap">
+  <p-table [value]="produtos" [tableStyle]="{ 'min-width': '50rem', width: '80%' }">
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Produtos
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Código de barras</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.nome }}</td>
+        <td>{{ product.codigoBarras }}</td>
+        <td>{{ product.preco  | currency:'BRL' }}</td>
+        <td>
+          <p-confirmPopup acceptLabel="Sim"></p-confirmPopup>
+          <p-button icon="pi pi-cog" severity="success" (onClick)="editarProduto(product)" [rounded]="true"></p-button> -
+          <p-button icon="pi pi-times" severity="danger" (onClick)="confirm($event, product.id)" [rounded]="true"></p-button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<div class="card flex justify-content-end flex-wrap" style="padding: 10px; width: 75%;">
+  <p-button label="Cadastrar"  routerLink="/cadastro"></p-button>
+</div>
